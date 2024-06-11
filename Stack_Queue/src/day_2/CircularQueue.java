@@ -18,7 +18,7 @@ public class CircularQueue {
       return (front==-1)?true:false;
    }
    public boolean isFull() {
-      return ((front==rear+1 )||(front==0)||rear==arr.length-1)?true:false;
+      return (((front==rear+1 )&&(front==0))||rear==arr.length-1)?true:false;
    }
    public void insert(int x) {
       if(isFull()) {
@@ -39,7 +39,7 @@ public class CircularQueue {
    public int remove() {
       int d = -999;
       if(isEmpty()) {
-         System.out.println("Queue is empty");
+         //System.out.println("Queue is empty");
          return d;
       }
       d=arr[front];
