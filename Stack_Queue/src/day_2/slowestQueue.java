@@ -1,13 +1,13 @@
 package day_2;
 
-public class SituationalSlowQueue {
+public class slowestQueue {
 	private int front,rear;
 	private int arr[];
-	public SituationalSlowQueue() {
+	public slowestQueue() {
 		front=rear=-1;
 		arr= new int [10];
 	}
-	public SituationalSlowQueue(int a) {
+	public slowestQueue(int a) {
 		front=rear=-1;
 		arr= new int [a];
 	}
@@ -23,8 +23,6 @@ public class SituationalSlowQueue {
 			if(front==0) {
 			System.out.println("Queue is full..!!");
 			return;
-			}else {
-				shiftArray();
 			}			
 		}
 		if(front==-1)front++;
@@ -52,8 +50,8 @@ public class SituationalSlowQueue {
 			System.out.println("Queue is Empty...!!!");
 			return d;
 		}
-
 		d= arr[front++];
+		shiftArray();
 		return d;		
 	}
 	
@@ -71,5 +69,4 @@ public class SituationalSlowQueue {
 			System.out.println(arr[i]);
 		}
 	}
-	}
-
+}

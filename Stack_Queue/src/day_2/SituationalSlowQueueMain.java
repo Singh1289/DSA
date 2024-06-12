@@ -13,7 +13,8 @@ public class SituationalSlowQueueMain {
 		System.out.println("1. Insert");
 		System.out.println("2. Remove");
 		System.out.println("3. Peek");
-		System.out.println("4. Exit");
+		System.out.println("4. Display");
+		System.out.println("5. Exit");
 		System.out.print("Enter your choice:");
 		Scanner s = new Scanner(System.in);
 		choice = s.nextInt();
@@ -33,21 +34,22 @@ public class SituationalSlowQueueMain {
 			}
 			break;
 		case 3:
-			que.printArray();
-//			woh = que.peek();
-//			if (woh == -999) {
-//				System.out.println("Queue is empty");
-//			} else {
-//				System.out.println("Top Value is " + woh);
-//			}
+			woh = que.peek();
+			if (woh == -999) {
+				System.out.println("Queue is empty");
+			} else {
+				System.out.println("Top Value is " + woh);
+			}
 			break;
-		case 4:
+		case 4: que.printArray();
+			break;
+		case 5:
 			break;
 		default:
-			System.out.println("Enter Value is not between 1 to 4 Enter again!!!..");
+			System.out.println("Enter Value is not between 1 to 5 Enter again!!!..");
 			break;
 		}
-	} while (choice != 4);
+	} while (choice != 5);
 	System.out.println("~~~ Thank you ~~~~");
 }
 }

@@ -9,6 +9,14 @@ public class LinkedList {
 		head = null;
 	}
 
+	public IntListNode getHead() {
+		return head;
+	}
+
+	public void setHead(IntListNode head) {
+		this.head = head;
+	}
+
 	public void insertFirst(int d) {
 		IntListNode new_node = new IntListNode(d);
 		if (head == null) {
@@ -60,6 +68,7 @@ public class LinkedList {
 
 	public int deleteFirst() {
 		int d = -999;
+		@SuppressWarnings("unused")
 		IntListNode deleteable;
 		if (head == null)
 			return d;
@@ -119,7 +128,7 @@ public class LinkedList {
 
 		IntListNode iter = head;
 
-		for (int i = 1; i < pos - 1 && iter.getNext() != null; i++)
+		for (int i = 1; (i < pos - 1) && (iter.getNext() != null); i++)
 			iter = iter.getNext();
 
 		if (iter.getNext() != null) {
@@ -127,12 +136,10 @@ public class LinkedList {
 			d = deleteable.getData();
 			iter.setNext(iter.getNext().getNext());
 			deleteable = null;
-
 		} else
 			System.out.println("invalid Position");
 
 		return d;
-
 	}
 
 	public void insert_before(int d, int before) {
@@ -156,10 +163,8 @@ public class LinkedList {
 		if (iter.getNext() != null) {
 			new_node.setNext(iter.getNext());
 			iter.setNext(new_node);
-
 		}
 		return;
-
 	}
 
 	public void insert_After(int d, int after) {
@@ -174,15 +179,12 @@ public class LinkedList {
 			iter.setNext(new_node);
 			return;
 		}
-		
-		while ((iter.getNext() != null) && (iter.getNext().getData() != after)) {
+		while ((iter.getNext() != null) && (iter.getNext().getData() != after)) 
 			iter = iter.getNext();
-		}
 		
 		new_node.setNext(iter.getNext());
 		iter.setNext(new_node);
 		return;
-
 	}
 
 	public void insert_sorted(int d) {
@@ -192,14 +194,11 @@ public class LinkedList {
 			new_node.setNext(head);
 			head = new_node;
 			return;
-
 		}
-
 		IntListNode iter = head;
 
-		while ((iter.getNext() != null) && (d > iter.getNext().getData())) {
+		while ((iter.getNext() != null) && (d > iter.getNext().getData()))
 			iter = iter.getNext();
-		}
 
 		new_node.setNext(iter.getNext());
 		iter.setNext(new_node);
@@ -248,6 +247,39 @@ public class LinkedList {
 			itr = itr.getNext();
 		}
 		return str;
+	}
+	
+	public static LinkedList concateToThirdList(LinkedList list1, LinkedList list2){
+		LinkedList list3 = new LinkedList();
+		IntListNode iter = list1.getHead();
+		IntListNode iter2 = list2.getHead();
+		
+		while(iter.getNext()!=null) {
+			list3.insert_last(iter.getData());
+			iter=iter.getNext();
+		}
+		list3.insert_last(iter.getData());
+		while(iter2.getNext()!=null) {
+			list3.insert_last(iter2.getData());
+			iter2=iter2.getNext();
+		}
+		list3.insert_last(iter2.getData());
+		return list3;		
+	}
+	
+	public void deleteList() {
+		head=null;
+		return;
+	}
+
+	public void concate(LinkedList list2) {
+		IntListNode iter = head;
+		while(iter.getNext()!=null)
+			iter=iter.getNext();
+		
+		//System.out.println(iter.getNext());
+		iter.setNext(list2.getHead());
+		return;
 	}
 
 }
