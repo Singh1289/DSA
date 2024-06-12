@@ -37,7 +37,7 @@ public class SituationalSlowQueue {
 	private void shiftArray() {
 		int i,j,d=front;
 		for(i=d;i>=0;i--) {
-			for(j)
+			//www
 		}
 		
 	}
