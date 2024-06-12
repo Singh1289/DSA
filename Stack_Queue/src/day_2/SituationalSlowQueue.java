@@ -37,7 +37,11 @@ public class SituationalSlowQueue {
 	private void shiftArray() {
 		int i,j,d=front;
 		for(i=d;i>=0;i--) {
-			for(j)
+			for(j=d+1;j<rear;j++) {
+				arr[j-1]=arr[j];
+			}
+			front--;
+			rear--;
 		}
 		
 	}
@@ -60,6 +64,11 @@ public class SituationalSlowQueue {
 		}
 		d = arr[front];
 		return d;	
+	}
+	public void printArray() {
+		for(int i=0;i<arr.length;i++) {
+			System.out.println(arr[i]);
+		}
 	}
 	}
 
