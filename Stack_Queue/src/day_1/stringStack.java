@@ -33,7 +33,7 @@ public class stringStack {
 	}
 	
 	public String pop() {
-		String d= "#";        
+		String d= null;        
 		if(isEmpty()) {
 			return d;
 		}else {
@@ -44,7 +44,7 @@ public class stringStack {
 	}
 	
 	public String peek() {
-		String d="#";
+		String d=null;
 		if(isEmpty()) {
 			return d;
 		}else {
