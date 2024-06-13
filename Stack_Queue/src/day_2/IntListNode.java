@@ -2,7 +2,7 @@ package day_2;
 
 public class IntListNode {
 	private int data;
-	private IntListNode next;
+	private IntListNode next;  // reference variable
 	public IntListNode() {
 		data=0;
 		next = null;
@@ -23,6 +23,5 @@ public class IntListNode {
 	public void setNext(IntListNode next) {
 		this.next = next;
 	}
-	
-	
+		
 }

@@ -282,4 +282,28 @@ public class LinkedList {
 		return;
 	}
 
+	public void reverseList() {
+		IntListNode prev,next,iter;
+		iter = head;
+		prev= null;
+		
+		while(iter != null) {
+			next = iter.getNext();
+			iter.setNext(prev);
+			prev = iter;
+			iter = next;
+		}
+		head= prev;
+	}
+	
+	public void findMiddle() { // tortoise and hare method  
+		IntListNode slow,fast;
+		slow=fast=head;
+		// time complexity is O(n/2)
+		while((fast!=null)&&(fast.getNext()!= null)) {
+			slow = slow.getNext();
+			fast= fast.getNext().getNext();
+		}
+		System.out.println("Middle element is : "+ slow.getData());
+	}
 }

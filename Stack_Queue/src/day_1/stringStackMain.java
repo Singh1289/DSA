@@ -26,7 +26,7 @@ public class stringStackMain {
 			case 2:
 				woh = ss.pop();
 				if (woh == null) {
-					System.out.println("Stack ss empty");
+					System.out.println("Stack is empty");
 				} else {
 					System.out.println("Popped Value ss " + woh);
 				}
@@ -34,7 +34,7 @@ public class stringStackMain {
 			case 3:
 				woh = ss.peek();
 				if (woh == null) {
-					System.out.println("Stack ss empty");
+					System.out.println("Stack is empty");
 				} else {
 					System.out.println("Top Value ss " + woh);
 				}
