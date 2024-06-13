@@ -35,9 +35,9 @@ public class CircularLinkedList {
 	
 	public void display() {
 		IntListNode iter = last.getNext();
-		System.out.println(" List : ");
+		System.out.print(" List");
 		do {
-			System.out.println(iter.getData()+" -> ");
+			System.out.print(" -> "+iter.getData());
 			iter = iter.getNext();
 		}while(iter!= last.getNext());
 		return;
