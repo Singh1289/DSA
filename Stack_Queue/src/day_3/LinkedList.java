@@ -179,7 +179,7 @@ public class LinkedList {
 			iter.setNext(new_node);
 			return;
 		}
-		while ((iter.getNext() != null) && (iter.getNext().getData() != after)) 
+		while ((iter.getNext() != null) && (iter.getData() != after)) 
 			iter = iter.getNext();
 		
 		new_node.setNext(iter.getNext());
