@@ -2,9 +2,9 @@ package day_1;
 
 import java.util.Scanner;
 
-public class stringStackMain {
+public class StringStackMain {
 	public static void main(String[] args) {
-		stringStack ss= new stringStack(4);
+		StringStack ss= new StringStack(4);
 		int choice = 0;
 		String woh;
 		do {

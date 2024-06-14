@@ -1,14 +1,14 @@
 package day_1;
 
-public class stringStack {
+public class StringStack {
 	private int top;
 	private String arr[];
 	
-	public stringStack(int size) {
+	public StringStack(int size) {
 		top = -1;
 		arr = new String[size] ;
 	}
-	public stringStack() {
+	public StringStack() {
 		top = -1;
 		arr = new String[10];
 	}

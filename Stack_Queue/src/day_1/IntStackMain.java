@@ -2,7 +2,7 @@ package day_1;
 
 import java.util.Scanner;
 
-public class intStackMain {
+public class IntStackMain {
 
 	public static void main(String[] args) {
 
