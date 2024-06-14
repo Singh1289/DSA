@@ -10,14 +10,15 @@ public class CircularLinkedListMain {
 		do {
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("1.Insert values");
-			System.out.println("2.Insert Last");
-			System.out.println("3.Insert By Pos");
-			System.out.println("4.Delete First");
-			System.out.println("5.Delete Last");
-			System.out.println("6.Delete by passing the node address");
-			System.out.println("7.Display list");
-			System.out.println("8.Reverse");
-			System.out.println("9. Exit");
+			System.out.println("2.Insert first");
+			System.out.println("3.Insert Last");
+			System.out.println("4.Insert By Pos");
+			System.out.println("5.Delete First");
+			System.out.println("6.Delete Last");
+			System.out.println("7.Delete by position");
+			System.out.println("8.Display list");
+			System.out.println("9.Reverse");
+			System.out.println("10. Exit");
 			System.out.print("Enter your choice:");
 			Scanner s = new Scanner(System.in);
 			choice = s.nextInt();
@@ -31,58 +32,59 @@ public class CircularLinkedListMain {
 			case 2:
 				System.out.print("Enter Value to insert first: ");
 				woh = s.nextInt();
-				cl.insert_last(woh);
+				cl.insert_first(woh);
 				break;
 			case 3:
-				System.out.println("function not available right now.");
-//				System.out.print("Enter Value to insert first: ");
-//				woh = s.nextInt();
-//				cl.insert_last(woh);
+				System.out.print("Enter Value to insert first: ");
+				woh = s.nextInt();
+				cl.insert_last(woh);
 				break;
 			case 4:
+				System.out.print("Enter the Value you want add in List :");
+				woh = s.nextInt();
+				System.out.print("At What Position :");
+				pos = s.nextInt();
+				cl.insert_by_pos(woh,pos);
+				break;
+			
+			case 5:
 				woh = cl.delete_first();
 				if(woh!=-999)
 					System.out.println(woh+" is deleted");
 				else
 					System.out.println("list is empty");
 				break;
-			case 5:
-				System.out.println("function not available right now.");
-//				woh = cl.delete_last();
-//				if(woh!=-999)
-//					System.out.println(woh+" is deleted");
-//				else
-//					System.out.println("list is empty");
-				break;
 			case 6:
-				System.out.println("function not available right now.");
-//				woh = cl.delete_last();
-//				if(woh!=-999)
-//					System.out.println(woh+" is deleted");
-//				else
-//					System.out.println("list is empty");
+				woh = cl.delete_last();
+				if(woh!=-999)
+					System.out.println(woh+" is deleted");
+				else
+					System.out.println("list is empty");
+				break;
+			case 7:
+				System.out.print("At What Position :");
+				pos = s.nextInt();
+				woh = cl.delete_by_pos(pos);
+				if(woh!=-999)
+					System.out.println(woh+" is deleted");
+				else
+					System.out.println("list is empty");
 				break;
 
-			case 7:
+			case 8:
 				cl.display();
 				break;
-			case 8:
+			case 9:
 				cl.setLast(CircularLinkedList.reverse(cl.getLast().getNext(), cl.getLast().getNext()));
 				System.out.println("List Reserved ");
-//				
-				//woh = cl.delete_last();
-//				if(woh!=-999)
-//					System.out.println(woh+" is deleted");
-//				else
-//					System.out.println("list is empty");
 				break;
-			case 9:
+			case 10:
 				break;
 			default:
-				System.out.println("Enter Value is not between 1 to 9 Enter again!!!..");
+				System.out.println("Enter Value is not between 1 to 10 Enter again!!!..");
 				break;
 			}
-		} while (choice != 9);
+		} while (choice != 10);
 		System.out.println("~~~ Thank you ~~~~");
 	}
 
