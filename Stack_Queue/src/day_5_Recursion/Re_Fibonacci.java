@@ -1,25 +1,29 @@
 package day_5_Recursion;
 
-public class Re_Fibonacci {
-	public static void fibonacci(int n) {
-		int ch=0;
+import java.util.Scanner;
 
-		if(n== -1)return;
-		
+public class Re_Fibonacci {
+	static int n1=0,n2=1,n3;
+	public static void fibonacci(int n) {
+
+		if(n!=0) {
+			n3=n1+n2;
+			n1=n2;
+			n2=n3;		
+		System.out.print(" -> "+n3);
 		fibonacci(n-1);
-	
-		for(int i=0;i<=n;i++)
-			ch+=i;
-		System.out.print(ch+" ");
-		
-		//System.out.println("in backward 2 :"+n);
+		}	
 		return;
 	}
 	
 	
 	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.print("how many terms : ");
+		int count = s.nextInt();
 		
-		fibonacci(5);
+		System.out.print("Series: "+n1+" -> "+n2);
+		fibonacci(count-2);
 		
 		System.out.println("\n~~~ Thank you ~~~");
 	}
