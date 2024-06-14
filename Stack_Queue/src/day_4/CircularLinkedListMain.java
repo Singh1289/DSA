@@ -9,7 +9,7 @@ public class CircularLinkedListMain {
 		int choice = 0, woh,pos;
 		do {
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
-			System.out.println("1.Insert First");
+			System.out.println("1.Insert values");
 			System.out.println("2.Insert Last");
 			System.out.println("3.Insert By Pos");
 			System.out.println("4.Delete First");
@@ -26,7 +26,7 @@ public class CircularLinkedListMain {
 			
 			case 1: System.out.print("how many nodes to be added : ");
 				woh = s.nextInt();
-				cl.insert_first(woh);
+				cl.createList(woh);
 			break;
 			case 2:
 				System.out.print("Enter Value to insert first: ");
@@ -67,8 +67,10 @@ public class CircularLinkedListMain {
 				cl.display();
 				break;
 			case 8:
-				System.out.println("function not available right now.");
-//				woh = cl.delete_last();
+				cl.setLast(CircularLinkedList.reverse(cl.getLast().getNext(), cl.getLast().getNext()));
+				System.out.println("List Reserved ");
+//				
+				//woh = cl.delete_last();
 //				if(woh!=-999)
 //					System.out.println(woh+" is deleted");
 //				else

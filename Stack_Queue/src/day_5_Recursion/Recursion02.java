@@ -10,6 +10,7 @@ public class Recursion02 {
 		for(int i=1;i<=n;i++) {
 			System.out.print("* ");}
 		System.out.println();
+		
 		if(n>5)return;
 		
 		fun02(n+1);

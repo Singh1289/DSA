@@ -1,10 +1,18 @@
 package day_4;
 
+import java.util.Scanner;
+
 import day_2.IntListNode;
 
 public class CircularLinkedList {
 	private IntListNode last;
 
+	public IntListNode getLast() {
+		return last;
+	}
+	public void setLast(IntListNode last) {
+		this.last = last;
+	}
 	public CircularLinkedList() {
 		last = null;
 	}
@@ -32,6 +40,32 @@ public class CircularLinkedList {
 		last= new_node;
 		return;
 	}
+	
+	public static IntListNode reverse(IntListNode state,IntListNode last )
+	{
+		IntListNode temp, carry;
+		if(state.getNext()==last) return state;
+		
+		temp=reverse(state.getNext(),last);
+		carry= state.getNext().getNext();
+		state.getNext().setNext(state);
+		state.setNext(carry);
+		if(state==last) {
+			state.setNext(temp);
+			return last;
+		}else {
+			state.setNext(carry);
+			return temp;}
+	}
+	public void createList (int n) {
+	   	 int data;
+	   	 Scanner s = new Scanner(System.in);
+	   	 for(int i=1;i<=n;i++) {
+	   		 System.out.print("Enter value :");
+	   		 data= s.nextInt();
+	   		 this.insert_last(data);
+	   	 }
+	    }
 	
 	public void display() {
 		if(last==null) {

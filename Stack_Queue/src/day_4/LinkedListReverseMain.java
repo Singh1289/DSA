@@ -2,15 +2,16 @@ package day_4;
 
 import java.util.Scanner;
 
+import day_2.IntListNode;
 import day_3.LinkedList;
 
-public class linkedListReverseMain {
+public class LinkedListReverseMain {
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
 		int choice = 0, woh,pos;
 		do {
 			System.out.println("~~~~~~~~~~~~~~");
-			System.out.println("1. Insert Last");
+			System.out.println("1. Insert values");
 			System.out.println("2. Delete Last");
 			System.out.println("3. Reverse List");
 			System.out.println("4. Find middle element");
@@ -23,9 +24,9 @@ public class linkedListReverseMain {
 			switch (choice) {
 			
 			case 1:
-				System.out.print("Enter the Value you want add in List :");
+				System.out.print("How many values you want to add : ");
 				woh = s.nextInt();
-				ll.insert_last(woh);
+				ll.createList(woh);
 				break;
 
 				
@@ -39,7 +40,7 @@ public class linkedListReverseMain {
 				break;
 				
 			case 3:
-				ll.reverseList();
+				ll.setHead(LinkedList.reverse(ll.getHead()));
 				System.out.println("List is reversed");
 				break;
 				
@@ -61,4 +62,6 @@ public class linkedListReverseMain {
 		} while (choice != 6);
 		System.out.println("~~~ Thank you ~~~~");
 	}
+
+	
 }

@@ -1,5 +1,7 @@
 package day_3;
 
+import java.util.Scanner;
+
 import day_2.IntListNode;
 
 public class LinkedList {
@@ -295,6 +297,29 @@ public class LinkedList {
 		}
 		head= prev;
 	}
+	
+	public void createList (int n) {
+   	 int data;
+   	 Scanner s = new Scanner(System.in);
+   	 for(int i=1;i<=n;i++) {
+   		 System.out.print("Enter value :");
+   		 data= s.nextInt();
+   		 this.insert_last(data);
+   	 }
+    }
+	
+	public static IntListNode reverse(IntListNode state)
+	{
+		IntListNode temp;
+		if(state.getNext()==null) return state;
+		
+		temp=reverse( state.getNext());
+		state.getNext().setNext(state);
+		state.setNext(null);
+		
+		return temp;
+	}
+
 	
 	public void findMiddle() { // tortoise and hare method  
 		IntListNode slow,fast;
