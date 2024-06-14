@@ -8,6 +8,7 @@ public class linkedListConcateMain {
 		LinkedList list2 = new LinkedList();
 		int choice = 0,check=0, woh, pos;
 		do {
+			
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("1.  Insert First");
 			System.out.println("2.  Insert Last");
