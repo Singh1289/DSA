@@ -8,7 +8,7 @@ public class Queue_LLMain {
 		int choice = 0, woh;
 		do {
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
-			System.out.println("~~ Stack-LinkedList ~~");
+			System.out.println("~~ Queue-LinkedList ~~");
 			System.out.println("1.add");
 			System.out.println("2.remove");
 			System.out.println("3.Peek");
