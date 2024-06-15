@@ -60,4 +60,59 @@ public class BinaryTree {
 		System.out.print(" -> "+rt.getData());
 		
 	}
+	public void insert_levelwise(int d) {
+		BTNode new_node = new BTNode(d);
+		if(root==null) {
+			root=new_node;
+			return;
+		}
+		BTNode iter = root;
+		BTQueueLL q = new BTQueueLL();
+		q.enQueue(iter);
+		
+		while(!q.isEmpty()) {
+			iter= q.deQueue();
+			if(iter.getLeft()==null) {
+				iter.setLeft(new_node);
+				return;
+			}else {
+				q.enQueue(iter.getLeft());
+			}
+			if(iter.getRight()==null) {
+				iter.setRight(new_node);
+				return;
+			}else {
+				q.enQueue(iter.getRight());
+			}
+		}
+	}
+	
+	public void treeTravsal(int d) {
+		BTNode new_node = new BTNode(d);
+		if(root==null) {
+			root=new_node;
+			return;
+		}
+		BTNode iter = root;
+		BTQueueLL q = new BTQueueLL();
+		q.enQueue(iter);
+		
+		while(!q.isEmpty()) {
+			iter= q.deQueue();
+			if(iter.getLeft()==null) {
+				iter.setLeft(new_node);
+				return;
+			}else {
+				q.enQueue(iter.getLeft());
+			}
+			if(iter.getRight()==null) {
+				iter.setRight(new_node);
+				return;
+			}else {
+				q.enQueue(iter.getRight());
+			}
+		}
+	}
+
+	
 }
