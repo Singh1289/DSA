@@ -6,10 +6,6 @@ public class BinaryTree {
 	public BinaryTree() {
 		root = null;
 	}
-
-//	public BinaryTree(int d) {
-//		root = new BTNode(d);
-//	}
 	
 	public BTNode getRoot() {
 		return root;
@@ -87,10 +83,10 @@ public class BinaryTree {
 		}
 	}
 	
-	public void treeTravsal(int d) {
-		BTNode new_node = new BTNode(d);
+	public void treeTravsal() {
+		
 		if(root==null) {
-			root=new_node;
+			System.out.println("Empty..!!!");
 			return;
 		}
 		BTNode iter = root;
@@ -99,7 +95,7 @@ public class BinaryTree {
 		
 		while(!q.isEmpty()) {
 			iter= q.deQueue();
-			System.out.println(iter.getData()+" ");
+			System.out.print(iter.getData()+" ");
 			if(iter.getLeft()!=null) {
 				q.enQueue(iter.getLeft());
 			}
