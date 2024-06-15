@@ -99,16 +99,11 @@ public class BinaryTree {
 		
 		while(!q.isEmpty()) {
 			iter= q.deQueue();
-			if(iter.getLeft()==null) {
-				iter.setLeft(new_node);
-				return;
-			}else {
+			System.out.println(iter.getData()+" ");
+			if(iter.getLeft()!=null) {
 				q.enQueue(iter.getLeft());
 			}
-			if(iter.getRight()==null) {
-				iter.setRight(new_node);
-				return;
-			}else {
+			if(iter.getRight()!=null) {
 				q.enQueue(iter.getRight());
 			}
 		}
