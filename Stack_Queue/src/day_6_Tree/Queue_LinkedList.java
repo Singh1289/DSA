@@ -25,22 +25,37 @@ public class Queue_LinkedList {
 	public void setRear(IntListNode rear) {
 		this.rear = rear;
 	}
+	public boolean isEmpty() {
+		return (front==null)?true:false;
+	}
 
 	public void add(int a) {
-		insert_last(a);
+		IntListNode new_node= new IntListNode(a);
+		if(front==null) {
+			front= rear=new_node;
+			return;
+		}
+		rear.setNext(new_node);
+		rear= new_node;
+		return;
 	}
 
-	private void insert_last(int a) {
-		
-		
-	}
+	
 	public int remove() {
-		return delete_first();
+		int d= -999;
+		if(isEmpty())return d;
+		d= front.getData();
+		front= front.getNext();
+		return d;
 	}
 
-	private int delete_first() {
-		
-		return 0;
+	public int peek() {
+		int d= -999;
+		if(isEmpty())return d;
+		d= front.getData();	
+		return d;
 	}
+
+	
 	
 }
