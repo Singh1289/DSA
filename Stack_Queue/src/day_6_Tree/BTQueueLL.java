@@ -18,6 +18,7 @@ public class BTQueueLL {
 			return;
 		}
 		rear.setNext(new_node);	
+		rear=new_node;
 		return;
 	}
 	

@@ -18,7 +18,59 @@ public class CircularLinkedList {
 	public CircularLinkedList() {
 		last = null;
 	}
-
+	
+	public void insert_before(int d, int before) {
+		IntListNode new_node = new IntListNode(d);
+		if (last == null) {
+			last = new_node;
+			last.setNext(last);
+			return;
+		}
+		if(last.getNext().getData()== before) {
+			insert_first(d);
+			return;
+		}
+		
+		IntListNode iter = last.getNext();
+		
+		do {
+			if(iter.getNext().getData()!=before) {
+				iter=iter.getNext();
+			}else {
+				new_node.setNext(iter.getNext());
+				iter.setNext(new_node);
+				return;
+			}
+		} while (iter != last);
+		System.out.println("no such value found in the list");
+		return;
+	}
+	public void insert_after(int d, int after) {
+		IntListNode new_node = new IntListNode(d);
+		if (last == null) {
+			last = new_node;
+			last.setNext(last);
+			return;
+		}
+		if(last.getData()== after) {
+			insert_last(d);
+			return;
+		}
+		IntListNode iter = last.getNext();
+		
+		do {
+			if(iter.getData()!=after) {
+				iter=iter.getNext();
+			}else {
+				new_node.setNext(iter.getNext());
+				iter.setNext(new_node);
+				return;
+			}
+		} while (iter != last);
+		System.out.println("no such value found in the list");
+		return;
+		
+	}
 	public void insert_first(int d) {
 		IntListNode new_node = new IntListNode(d);
 		if (last == null) {
@@ -190,4 +242,6 @@ public class CircularLinkedList {
 		System.out.println("Position out of bound.");
 		return d;
 	}
+
+	
 }
