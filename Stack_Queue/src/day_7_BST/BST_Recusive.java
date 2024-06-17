@@ -5,8 +5,13 @@ import java.util.Scanner;
 import day_6_Tree.BTNode;
 
 public class BST_Recusive {
-private BTNode root;
+	private BTNode root;
 	
+	
+	public BTNode getRoot() {
+		return root;
+	}
+
 	public BST_Recusive() {root=null;}
 
 	public void insertMany(int d) {
@@ -22,7 +27,7 @@ private BTNode root;
 			root=insert_rec(root,data);			
 	}
 	private BTNode insert_rec(BTNode r, int d) {
-		if(r==null) r= new BTNode(d);
+		if(r==null) r= new BTNode(d); // termination/ base condition
 		
 		else if(d< r.getData()) r.setLeft(insert_rec(r.getLeft(), d));
 		
@@ -47,9 +52,19 @@ private BTNode root;
 	}
 	
 
-	private BTNode search_Rec(int d) {
+	public BTNode search_Rec(int d) {
 		return root;
 		// non recursive search
 		
+	}
+	public static int findHeight(BTNode r) {
+		int left,right;
+		if(r==null)	// termination / base condition
+			return 0;
+		
+		left=findHeight(r.getLeft());
+		right=findHeight(r.getRight());
+		
+		return (left>right)? left+1: right+1;
 	}
 }
