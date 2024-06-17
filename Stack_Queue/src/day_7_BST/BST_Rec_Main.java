@@ -15,6 +15,7 @@ public class BST_Rec_Main {
 			System.out.println("3. Display");
 			System.out.println("4. Search a node");
 			System.out.println("5. Find hight");
+			System.out.println("6. Find Min Max");
 			System.out.println("6. Exit");
 			System.out.print("Enter your choice:");
 			Scanner s = new Scanner(System.in);
@@ -39,9 +40,9 @@ public class BST_Rec_Main {
 			case 4:
 				System.out.print("Value to be searched :");
 				woh = s.nextInt();
-				BTNode ch=tree.search_Rec(woh);
-				if(ch==null)
-				System.out.println("Node not found");
+				BTNode ch=tree.search(woh);
+				if(ch == null)
+					System.out.println("Node not found");
 				else
 					System.out.println("Found value :"+ch.getData());
 				break;
@@ -50,12 +51,16 @@ public class BST_Rec_Main {
 				System.out.println("Height : "+ woh);
 				break;
 			case 6:
+				System.out.println("Max node : "+ tree.findMax_rec());
+				System.out.println("Min node : "+ tree.findMin_rec());
+				break;
+			case 7:
 				break;
 			default:
-				System.out.println("Enter Value is not between 1 to 5 Enter again!!!..");
+				System.out.println("Enter Value is not between 1 to 6 Enter again!!!..");
 				break;
 			}
-		} while (choice != 6);
+		} while (choice != 7);
 		System.out.println("~~~ Thank you ~~~~");
 	}
 }

@@ -26,15 +26,13 @@ public class BST_Recusive {
 	public void insert(int data) {
 			root=insert_rec(root,data);			
 	}
+	
 	private BTNode insert_rec(BTNode r, int d) {
-		if(r==null) r= new BTNode(d); // termination/ base condition
-		
-		else if(d< r.getData()) r.setLeft(insert_rec(r.getLeft(), d));
-		
-		else if(d>r.getData()) r.setRight(insert_rec(r.getRight(), d));
-		else System.out.println("sorry..duplicate value");
+		if(r==null) r= new BTNode(d);            // termination / base condition		
+		  else if(d< r.getData()) r.setLeft(insert_rec(r.getLeft(), d));		
+		    else if(d>r.getData()) r.setRight(insert_rec(r.getRight(), d));
+		      else System.out.println("Sorry..duplicate value");
 		return r;
-		
 	}
 	
 	public void displayInOrder() {
@@ -52,14 +50,50 @@ public class BST_Recusive {
 	}
 	
 
-	public BTNode search_Rec(int d) {
-		return root;
-		// non recursive search
-		
+	public BTNode search(int d) {	
+		return search_rec(root,d);		
 	}
+	
+	private BTNode search_rec(BTNode r, int d) {
+		BTNode temp = null;
+		if(r==null || r.getData()==d)return r;
+		
+		if(r.getData()>d) temp= search_rec(r.getLeft(),d);
+		
+		if(r.getData()<d) temp= search_rec(r.getRight(),d);
+		
+		return temp;
+	}
+	
+	public int findMax_rec() {
+		return findMax(root).getData();
+	}
+	
+	private BTNode findMax (BTNode r) {
+		BTNode temp = null;
+		if(r.getRight()==null)return r;
+		
+		temp= findMax(r.getRight());
+				
+		return temp;
+	}
+	
+	public int findMin_rec() {
+		return findMin(root).getData();
+	}
+	
+	private BTNode findMin (BTNode r) {
+		BTNode temp = null;
+		if(r.getLeft()==null)return r;
+		
+		temp= findMin(r.getLeft());
+				
+		return temp;
+	}
+	
 	public static int findHeight(BTNode r) {
 		int left,right;
-		if(r==null)	// termination / base condition
+		if(r==null)						// termination / base condition
 			return 0;
 		
 		left=findHeight(r.getLeft());
