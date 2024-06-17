@@ -1,8 +1,6 @@
-package day_3_LinkedList;
+package day_1_Stack;
 
 import java.util.Scanner;
-
-import day_1_Stack.StringStack;
 
 public class htmlTagValidation {
 	private static boolean match(String c1, String c2) {
@@ -41,6 +39,6 @@ public class htmlTagValidation {
 		else
 			System.out.println("Statement is invalid.");
 	}
-
+// <html> </html>
 
 }

@@ -53,8 +53,6 @@ public class charStack2c2 {
 		}else {
 			d= arr[topA];
 			topA--;
-			
-			
 			return d;
 		}
 	}
@@ -63,10 +61,8 @@ public class charStack2c2 {
 		if(isEmptyB()) {
 			return d;
 		}else {
-			
+			d= arr[topB];
 			topB++;
-			
-			
 			return d;
 		}
 	}

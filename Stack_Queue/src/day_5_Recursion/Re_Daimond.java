@@ -26,7 +26,7 @@ public class Re_Daimond {
 				System.out.print(" ");}
 			
 			System.out.print("*");
-			for(int i=1;i<=n;i++) {
+			for(int i=1;i<=(2*n+1);i++) {
 				System.out.print(" ");}
 			System.out.print("*");
 			System.out.println();
@@ -37,7 +37,7 @@ public class Re_Daimond {
 				System.out.print(" ");}
 			
 			System.out.print("*");
-			for(int i=1;i<=n;i++) {
+			for(int i=1;i<=(2*n+1);i++) {
 				System.out.print(" ");}
 			System.out.print("*");
 			System.out.println();
