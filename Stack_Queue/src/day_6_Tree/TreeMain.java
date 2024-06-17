@@ -5,30 +5,56 @@ import java.util.Scanner;
 public class TreeMain {
 	public static void main(String[] args) {
 		BinaryTree bt = new BinaryTree();
-		int choice = 0, woh;
+		BinaryTree bt1 = new BinaryTree();
+		Scanner s = new Scanner(System.in);
+		int choice = 0, woh,ch=0;
 		do {
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~ Binary Tree(balance) ~~");
-			System.out.println("1.Add mulyiple nodes");
+			System.out.println("1.Add multiple nodes");
 			System.out.println("2.Create a node");
-			System.out.println("3.Delete a node");
+			System.out.println("3.count level");
 			System.out.println("4.Display tree");
-			System.out.println("5.Pre order");
-			System.out.println("6.In order");
-			System.out.println("7.Post order");
+			System.out.println("5.IsIdentical");
+			System.out.println("6.Create new Mirror Image");
+			System.out.println("7.Create mirror image");
 			System.out.println("8.Count nodes");
 			System.out.println("9.Sum of nodes");
 			System.out.println("10.Average of nodes");
-			System.out.println("11.Exit");
+			System.out.println("11.Max Value of Tree");
+			System.out.println("12.Min Value of Tree");
+			System.out.println("13.Display leaf Nodes");
+			System.out.println("14.Display Non-leaf Nodes");
+			System.out.println("15.Exit");
 			System.out.print("Enter your choice:");
-			Scanner s = new Scanner(System.in);
+			
 			choice = s.nextInt();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			switch (choice) {
 			case 1:
-				System.out.print("How many nodes you want to add :");
-				woh = s.nextInt();
-				bt.insert_many(woh);
+				do {
+					System.out.println("~~~~~~~~~~~~~~~~~~");
+					System.out.println("1.Create Tree one");
+					System.out.println("2.Create Tree two");
+					System.out.println("3.Exit");
+					System.out.print("Enter your choice:");
+					ch = s.nextInt();
+					System.out.println("~~~~~~~~~~~~~~~~~~~");
+					switch(ch) {
+					case 1:
+						System.out.print("How many nodes you want to add :");
+						woh = s.nextInt();
+						bt.insert_many(woh);
+						break;
+					case 2:
+						System.out.print("How many nodes you want to add :");
+						woh = s.nextInt();
+						bt1.insert_many(woh);
+						break;
+					case 3: break;
+					default: System.out.println("Invalid option");
+					}
+				}while(ch!=3);
 				break;
 			case 2:
 				System.out.print("Enter the Value you want add in tree:");
@@ -36,46 +62,98 @@ public class TreeMain {
 				bt.insert_levelwise(woh);
 				break;
 			case 3:
-				System.out.println("function not avilable");
+				int count= bt.level_cout();
+				if(count==-1)
+					System.out.println("tree is empty..!!");
+				else {
+				System.out.println("levels : "+count);
+				System.out.println("Height : "+(count+1));
+				}
 				break;
 			case 4:
-				bt.treeTravsal();
-				System.out.println();
+				do {
+					System.out.println("~~~~~~~~~~~~~~~~~~");
+					System.out.println("1.Tree one");
+					System.out.println("2.Tree two");
+					System.out.println("3.Exit");
+					System.out.print("Enter your choice:");
+					ch = s.nextInt();
+					System.out.println("~~~~~~~~~~~~~~~~~~~");
+					switch(ch) {
+					case 1:
+						bt.treeTravsal();
+						System.out.println();
+						break;
+					case 2:
+						bt1.treeTravsal();
+						System.out.println();
+						break;
+					case 3: break;
+					default: System.out.println("Invalid option");
+					}
+				}while(ch!=3);
+				
 				break;
 			case 5:
-				bt.preOrder();
-				System.out.println();
+				if(BinaryTree.isIdentical(bt,bt1))
+					System.out.println("Both Trees are identical");
+				else
+					System.out.println("Trees are not Identical");
 				break;
 			case 6:
-				bt.inOrder();
+				BinaryTree new_tree= bt.createMirrorImage();
+				System.out.println("New mirror copy is  created successfully");
+				new_tree.treeTravsal();
 				System.out.println();
 				break;
 			case 7:
-				bt.postOrder();
-				System.out.println();
+				bt.mirror();
+				System.out.println("Mirror image created successfully.");
 				break;
 			case 8:
 				bt.countOfDifferentNodes();
-				//System.out.println("function not avilable");
-
 				break;
 			case 9:
 				bt.sumOfDifferentNodes();
-				//System.out.println("function not avilable");
-
 				break;
 			case 10:
 				bt.averageOfDifferentNodes();
+				break;
+			case 11:
+				woh=bt.max_node();
+				if (woh == -999) {
+					System.out.println("Tree is empty");
+				} else {
+					System.out.println("Maximum Value of Node :"+woh);
+				}
+				break;
+			case 12:
+				woh=bt.min_node();
+				
+				if (woh == Integer.MAX_VALUE) {
+					System.out.println("Tree is empty"+woh);
+				} else {
+					System.out.println("Minimum Value of Node :"+woh);
+				}
+			
+				break;
+			case 13:
+				bt.display_leafNode();
 				//System.out.println("function not avilable");
 
 				break;
-			case 11:
+			case 14:
+				bt.display_nonLeafNode();
+				//System.out.println("function not avilable");
+
+				break;
+			case 15:
 				break;
 			default:
 				System.out.println("Enter Value is not between 1 to 11 Enter again!!!..");
 				break;
 			}
-		} while (choice != 11);
+		} while (choice != 15);
 		System.out.println("~~~ Thank you ~~~~");
 	}
 }
