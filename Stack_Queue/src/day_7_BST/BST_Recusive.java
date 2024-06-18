@@ -11,6 +11,7 @@ public class BST_Recusive {
 	public BTNode getRoot() {
 		return root;
 	}
+	
 
 	public BST_Recusive() {root=null;}
 
@@ -53,7 +54,9 @@ public class BST_Recusive {
 	public BTNode search(int d) {	
 		return search_rec(root,d);		
 	}
-	
+	public boolean Fibonaaci_series() {
+		return true;
+	}
 	private BTNode search_rec(BTNode r, int d) {
 		BTNode temp = null;
 		if(r==null || r.getData()==d)return r;
@@ -101,4 +104,46 @@ public class BST_Recusive {
 		
 		return (left>right)? left+1: right+1;
 	}
+	
+	public void delete(int d)
+	{
+		root=delete_BST(root,d);
+	}
+
+
+	private BTNode delete_BST(BTNode r, int d) {
+		BTNode deleteable ,succ;
+		if(r==null) {
+			System.out.println("Node is not avilable in the tree");
+			return null;
+		}
+		if(d<r.getData()) 
+			r.setLeft(delete_BST(r.getLeft(), d));
+		else if(d>r.getData()) 
+			r.setRight(delete_BST(r.getRight(), d));
+		
+		else if(r.getLeft()!=null && r.getRight()!=null){
+			
+			succ=r.getRight();
+			
+			while(succ.getLeft()!=null)
+				succ=succ.getLeft();
+			
+			r.setData(succ.getData());
+			r.setRight(delete_BST(r.getRight(), succ.getData()));
+			
+			}
+		else {
+			deleteable =r;
+			if(r.getLeft()!=null)
+				r=r.getLeft();
+			else if(r.getRight()!=null)
+				r=r.getRight();
+			else
+				r=null;
+		}
+		deleteable=null;
+		return r;
+	}
+	
 }

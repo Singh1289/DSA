@@ -16,7 +16,8 @@ public class BST_Rec_Main {
 			System.out.println("4. Search a node");
 			System.out.println("5. Find hight");
 			System.out.println("6. Find Min Max");
-			System.out.println("6. Exit");
+			System.out.println("7. Delete a node");
+			System.out.println("8. Exit");
 			System.out.print("Enter your choice:");
 			Scanner s = new Scanner(System.in);
 			choice = s.nextInt();
@@ -55,12 +56,18 @@ public class BST_Rec_Main {
 				System.out.println("Min node : "+ tree.findMin_rec());
 				break;
 			case 7:
+				System.out.print("What value to be delete :");
+				woh = s.nextInt();
+				tree.delete(woh);
+				System.out.println("deleted Successfully");
+				break;
+			case 8:
 				break;
 			default:
 				System.out.println("Enter Value is not between 1 to 6 Enter again!!!..");
 				break;
 			}
-		} while (choice != 7);
+		} while (choice != 8);
 		System.out.println("~~~ Thank you ~~~~");
 	}
 }
