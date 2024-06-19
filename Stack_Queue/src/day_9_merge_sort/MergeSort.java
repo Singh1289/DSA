@@ -29,22 +29,23 @@ public class MergeSort {
 	
 	// used in merge sort
 	public static void merge_ver2(int arr[],int target[],int low_in1,int high_in1, int low_in2, int high_in2) {
-		int i=low_in1, k=low_in1,j=low_in2;
-		while(i<=high_in1) {
+		int i=low_in1,j=low_in2, k=low_in1;
+		
+		while(i<=high_in1 && j<=high_in2) {
 			
 			if(arr[i]< arr[j]) {
 				target[k]=arr[i];
 				i++;k++;
 			}
-			if(arr[i]> arr[j]) {
+			else {
 				target[k]=arr[j];
 				j++;k++;
 			}
-			while(i<high_in1) {
+			while(i <= high_in1) {
 				target[k]=arr[i];
 				i++;k++;
 			}
-			while(j<high_in2) {
+			while(j <= high_in2) {
 				target[k]=arr[j];
 				j++;k++;
 			}			
@@ -65,7 +66,7 @@ public class MergeSort {
 		
 		if(low_in>= high_in) return;
 		
-		mid= (low_in+high_in)/2;
+		mid = (low_in + high_in)/2;
 		mergeSort(arr,low_in,mid);
 		mergeSort(arr,mid+1,high_in);
 		
@@ -86,7 +87,7 @@ public class MergeSort {
 		int arr[]= {23,34,65,12,14,05,65,11,23,10,3,6};
 		display(arr);
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		mergeSort(arr, 0, arr.length);
+		mergeSort(arr, 0, arr.length-1);
 		
 		display(arr);
 		
