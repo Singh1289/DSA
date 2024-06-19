@@ -112,7 +112,7 @@ public class BST_Recusive {
 
 
 	private BTNode delete_BST(BTNode r, int d) {
-		BTNode deleteable ,succ;
+		BTNode succ;
 		if(r==null) {
 			System.out.println("Node is not avilable in the tree");
 			return null;
@@ -134,7 +134,7 @@ public class BST_Recusive {
 			
 			}
 		else {
-			deleteable =r;
+			//deleteable =r;
 			if(r.getLeft()!=null)
 				r=r.getLeft();
 			else if(r.getRight()!=null)
@@ -142,7 +142,7 @@ public class BST_Recusive {
 			else
 				r=null;
 		}
-		deleteable=null;
+		//deleteable=null;
 		return r;
 	}
 	
