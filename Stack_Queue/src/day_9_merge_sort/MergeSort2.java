@@ -10,9 +10,14 @@ public class MergeSort2 {
             if (arr1[i] < arr2[j]) {
                 target[k] = arr1[i];
                 i++; k++;
-            } else {
-                target[k] = arr2[j];
+            }
+            else if (arr1[i] > arr2[j]) {
+                target[k] = arr1[j];
                 j++; k++;
+            }
+            else {
+                target[k] = arr2[j];
+                j++; k++;i++;
             }
         }
         while (i < arr1.length) {
@@ -33,9 +38,14 @@ public class MergeSort2 {
             if (arr[i] < arr[j]) {
                 target[k] = arr[i];
                 i++; k++;
-            } else {
+            }
+            else if (arr[i] > arr[j]) {
                 target[k] = arr[j];
                 j++; k++;
+            }
+            else {
+                target[k] = arr[j];
+               i++; j++; k++;
             }
         }
         while (i <= high_in1) {
