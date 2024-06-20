@@ -15,7 +15,7 @@ public class Int_LLMain {
 			System.out.println("3. Split");
 			System.out.println("4. Find Middle");
 			System.out.println("5. insert in two list");
-			System.out.println("6. ------");
+			System.out.println("6. even odd");
 			System.out.println("7. merge both list");
 			System.out.println("8. display reverse");
 			System.out.println("9. reverse list");
@@ -59,8 +59,8 @@ public class Int_LLMain {
 				list.insertMany(woh);
 				break;
 			case 6:
-				//
-				//ll.insert_After(woh, pos);
+				ll.evenOdd();
+				System.out.println("Done..!!");
 				break;
 			case 7:
 				Int_linkedlist test =Int_linkedlist.mergeSorted(ll, list);

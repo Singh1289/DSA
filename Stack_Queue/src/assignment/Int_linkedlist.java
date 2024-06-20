@@ -59,7 +59,7 @@ public class Int_linkedlist {
 		IntListNode slow,fast;
 		slow=fast=head;
 		// time complexity is O(n/2)
-		while((fast!=null)&&(fast.getNext().getNext()!= null)) {
+		while((fast!=null)&&(fast.getNext()!= null)) {
 			slow = slow.getNext();
 			fast= fast.getNext().getNext();
 		}
@@ -175,25 +175,49 @@ public class Int_linkedlist {
 		while(itr1!=null && itr2!= null) {
 			if(itr1.getData() < itr2.getData()) {
 				ll.insert_last(itr1.getData());
-				itr1.getNext();
+				itr1=itr1.getNext();
 			}else if( itr1.getData() > itr2.getData()) {
 				ll.insert_last(itr2.getData());
-				itr2.getNext(); 
+				itr2=itr2.getNext(); 
 			}else{
 				ll.insert_last(itr2.getData());
-				itr2.getNext();
-				itr1.getNext();
+				itr2=itr2.getNext();
+				itr1=itr1.getNext();
 			}
 		}
 		while(itr1!=null) {
 			ll.insert_last(itr1.getData());
-			itr1.getNext();
+			itr1=itr1.getNext();
 		}
 		while(itr2!=null) {
 			ll.insert_last(itr2.getData());
-			itr2.getNext(); 
+			itr2=itr2.getNext();
 		}
 		return ll;
 	}
+	
+	public void evenOdd() {
+		Int_linkedlist temp= new Int_linkedlist();
+		IntListNode iter= head;
+		while(iter!=null) {
+			if((iter.getData() % 2)==0) {
+				temp.insert_last(iter.getData());				
+			}
+			iter = iter.getNext();
+		}
+		iter= head;
+		while(iter!=null) {
+			if((iter.getData() % 2)!=0) {
+				temp.insert_last(iter.getData());			
+			}
+			iter = iter.getNext();
+		}
+		
+		head = temp.getHead();
+		temp=null;
+		return;
+	}
+	
+	
 	
 }
