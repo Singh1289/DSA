@@ -218,6 +218,24 @@ public class Int_linkedlist {
 		return;
 	}
 	
-	
+	public void swapAdjacent() {
+		if(head==null) {
+			System.out.println("list is empty..!!");
+		}
+		IntListNode iter = head;
+		int temp;
+		
+		while(iter != null) {
+			if(iter.getNext()!=null && iter.getNext().getNext()!=null) {
+				temp= iter.getData();
+				iter.setData(iter.getNext().getData());
+				iter.getNext().setData(temp);
+			}
+			if (iter.getNext() != null)
+				iter = iter.getNext().getNext();
+			else
+				iter = iter.getNext();
+		}
+	}
 	
 }

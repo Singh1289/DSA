@@ -22,7 +22,8 @@ public class Int_LLMain {
 			System.out.println("10. delete alternate");
 			System.out.println("11. Display alternate Nodes");
 			System.out.println("12. Display List");
-			System.out.println("13. Exit");
+			System.out.println("13. Swap Adjacent");
+			System.out.println("14. Exit");
 			System.out.print("Enter your choice:");
 			Scanner s = new Scanner(System.in);
 			choice = s.nextInt();
@@ -84,13 +85,18 @@ public class Int_LLMain {
 				System.out.println(ll);
 				break;
 			case 13:
-				
+				System.out.println(ll);
+				System.out.println("After swap");
+				ll.swapAdjacent();
+				System.out.println(ll);
+				break;
+			case 14:
 				break;
 			default:
-				System.out.println("Enter Value is not between 1 to 13 Enter again!!!..");
+				System.out.println("Enter Value is not between 1 to 14 Enter again!!!..");
 				break;
 			}
-		} while (choice != 13);
+		} while (choice != 14);
 		System.out.println("~~~ Thank you ~~~~");
 	}
 }
