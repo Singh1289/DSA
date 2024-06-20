@@ -94,6 +94,19 @@ public class Int_linkedlist {
 		head= prev;
 	}
 	
+	
+	public static IntListNode reverse(IntListNode state)
+	{
+		IntListNode temp;
+		if(state.getNext()==null) return state;
+		
+		temp=reverse( state.getNext());
+		state.getNext().setNext(state);
+		state.setNext(null);
+		
+		return temp;
+	}
+	
 	public void display_alternativeNode() {
 		if (head == null) {
 			System.out.println("List Empty");
