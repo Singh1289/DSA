@@ -293,4 +293,73 @@ public class Int_linkedlist {
 		}
 	}
 
+	public int count() {
+		int cnt = 0;
+		IntListNode iter = head;
+		if (head == null)
+			return 0;
+
+		while (iter != null) {
+			cnt++;
+			iter = iter.getNext();
+		}
+		return cnt;
+	}
+	
+	public static void bubbleSort(Int_linkedlist ll) {
+		int count, temp, flag;
+		IntListNode iter = ll.getHead();
+		count = ll.count();
+		
+		for(int i=1;i<=count;i++) {
+			flag=0;
+			iter = ll.getHead();
+			while(iter!= null && iter.getNext() != null) {
+				if(iter.getData()> iter.getNext().getData()) {
+					temp= iter.getData();
+					iter.setData(iter.getNext().getData());
+					iter.getNext().setData(temp);
+					flag=1;
+				}
+				iter= iter.getNext();
+			}
+		//	System.out.println("~~~~~~~~~~~~~~");
+		//	System.out.println(ll);
+			if(flag==0)
+				break;
+		}
+	}
+
+
+
+
+	public static void insertionSort(Int_linkedlist ll) {
+		int count, temp;
+		IntListNode iter,tt,tt2;
+		count = ll.count();
+		tt2=ll.getHead();
+		for(int i=1;i<=count;i++) {
+			iter = ll.getHead();
+			tt = tt2;
+			while(iter!=null && iter.getNext()!= null) {
+				if(tt.getData()<iter.getData()) {
+					temp= iter.getData();
+					iter.setData(tt.getData());
+					tt.setData(temp);
+				}
+				iter= iter.getNext();
+			}
+			System.out.println("~~~~~~~~~~~~~~");
+			System.out.println(ll);
+			tt2=tt.getNext();
+		}
+	}
+
+	public static void selectionSort(Int_linkedlist ll) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }

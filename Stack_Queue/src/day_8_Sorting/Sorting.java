@@ -51,8 +51,8 @@ public class Sorting {
 			}
 			if(flag==0)
 				break;
-			display(arr);
-			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~\n");
+			//display(arr);
+			//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~\n");
 		}
 		
 	}
