@@ -231,6 +231,14 @@ public class Int_linkedlist {
 		return;
 	}
 	
+public void evenOdd2(){
+IntListNode iter = head;
+
+while(iter != null){
+   
+}
+}
+
 	public void swapAdjacent() {
 		if(head==null) {
 			System.out.println("list is empty..!!");
