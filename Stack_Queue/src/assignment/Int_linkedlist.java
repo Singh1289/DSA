@@ -3,6 +3,7 @@ package assignment;
 import java.util.Scanner;
 
 import day_2_Queue.IntListNode;
+import day_2_Queue.MyQueue;
 
 public class Int_linkedlist {
 	private IntListNode head;
@@ -18,15 +19,15 @@ public class Int_linkedlist {
 	public void setHead(IntListNode head) {
 		this.head = head;
 	}
-	
+
 	public void insertMany(int woh) {
 		Scanner sc = new Scanner(System.in);
-		for(int i=1;i<=woh;i++) {
+		for (int i = 1; i <= woh; i++) {
 			System.out.print("Enter value : ");
 			int a = sc.nextInt();
 			insert_last(a);
 		}
-		
+
 	}
 
 	public void insertFirst(int d) {
@@ -54,18 +55,18 @@ public class Int_linkedlist {
 		iter.setNext(new_node);
 		return;
 	}
-	
-	public void findMiddle() { // tortoise and hare method  
-		IntListNode slow,fast;
-		slow=fast=head;
+
+	public void findMiddle() { // tortoise and hare method
+		IntListNode slow, fast;
+		slow = fast = head;
 		// time complexity is O(n/2)
-		while((fast!=null)&&(fast.getNext()!= null)) {
+		while ((fast != null) && (fast.getNext() != null)) {
 			slow = slow.getNext();
-			fast= fast.getNext().getNext();
+			fast = fast.getNext().getNext();
 		}
-		System.out.println("Middle element is : "+ slow.getData());
+		System.out.println("Middle element is : " + slow.getData());
 	}
-	
+
 	public String toString() {
 		String str = new String(" ");
 		if (head == null)
@@ -79,43 +80,42 @@ public class Int_linkedlist {
 		}
 		return str;
 	}
-	
+
 	public void reverseList() {
-		IntListNode prev,next,iter;
+		IntListNode prev, next, iter;
 		iter = head;
-		prev= null;
-		
-		while(iter != null) {
+		prev = null;
+
+		while (iter != null) {
 			next = iter.getNext();
 			iter.setNext(prev);
 			prev = iter;
 			iter = next;
 		}
-		head= prev;
+		head = prev;
 	}
-	
-	
-	public static IntListNode reverse(IntListNode state)
-	{
+
+	public static IntListNode reverse(IntListNode state) {
 		IntListNode temp;
-		if(state.getNext()==null) return state;
-		
-		temp=reverse( state.getNext());
+		if (state.getNext() == null)
+			return state;
+
+		temp = reverse(state.getNext());
 		state.getNext().setNext(state);
 		state.setNext(null);
-		
+
 		return temp;
 	}
-	
+
 	public void display_alternativeNode() {
 		if (head == null) {
 			System.out.println("List Empty");
 			return;
 		}
 		IntListNode iter = head;
-		System.out.print( "Alternate List ");
+		System.out.print("Alternate List ");
 		while (iter != null) {
-			System.out.print(" -> "+iter.getData());
+			System.out.print(" -> " + iter.getData());
 			if (iter.getNext() != null)
 				iter = iter.getNext().getNext();
 			else
@@ -123,16 +123,17 @@ public class Int_linkedlist {
 		}
 		System.out.println();
 	}
-	
+
 	public void display_reverse() {
 		displayReverseRec(head);
 	}
-	
+
 	private void displayReverseRec(IntListNode iter) {
-		if(iter==null)return;
-		
+		if (iter == null)
+			return;
+
 		displayReverseRec(iter.getNext());
-		System.out.println(" -> "+iter.getData());		
+		System.out.println(" -> " + iter.getData());
 	}
 
 	public void deleteAlternate() {
@@ -141,7 +142,7 @@ public class Int_linkedlist {
 			return;
 		}
 		IntListNode iter = head;
-		System.out.print( "Alternate deleted value ");
+		System.out.print("Alternate deleted value ");
 		while (iter != null) {
 			deleteByAddress(iter);
 			if (iter.getNext() != null)
@@ -151,121 +152,137 @@ public class Int_linkedlist {
 		}
 		System.out.println();
 	}
-	
+
 	private void deleteByAddress(IntListNode del) {
-			
-		IntListNode temp= del.getNext().getNext();
+
+		IntListNode temp = del.getNext().getNext();
 		del.setData(del.getNext().getData());
 		del.getNext().setNext(null);
-		del.setNext(temp);		
-		return ;
+		del.setNext(temp);
+		return;
 	}
-	
+
 	public IntListNode split(int d) {
 		if (head == null) {
 			System.out.println("List Empty");
 			return null;
 		}
-		if(head.getData()==d) {
+		if (head.getData() == d) {
 			System.out.println("there is only one node.. can't split");
 			return null;
 		}
-		
+
 		IntListNode iter = head;
-		while ((iter.getNext() != null) && (iter.getNext().getData() != d)) 
+		while ((iter.getNext() != null) && (iter.getNext().getData() != d))
 			iter = iter.getNext();
-		
-		IntListNode temp= iter.getNext();
+
+		IntListNode temp = iter.getNext();
 		iter.setNext(null);
 		return temp;
 	}
 
-	public static Int_linkedlist mergeSorted(Int_linkedlist list1,Int_linkedlist list2) {
+	public static Int_linkedlist mergeSorted(Int_linkedlist list1, Int_linkedlist list2) {
 		Int_linkedlist ll = new Int_linkedlist();
-		IntListNode itr1= list1.getHead();
+		IntListNode itr1 = list1.getHead();
 		IntListNode itr2 = list2.getHead();
-		
-		while(itr1!=null && itr2!= null) {
-			if(itr1.getData() < itr2.getData()) {
+
+		while (itr1 != null && itr2 != null) {
+			if (itr1.getData() < itr2.getData()) {
 				ll.insert_last(itr1.getData());
-				itr1=itr1.getNext();
-			}else if( itr1.getData() > itr2.getData()) {
+				itr1 = itr1.getNext();
+			} else if (itr1.getData() > itr2.getData()) {
 				ll.insert_last(itr2.getData());
-				itr2=itr2.getNext(); 
-			}else{
+				itr2 = itr2.getNext();
+			} else {
 				ll.insert_last(itr2.getData());
-				itr2=itr2.getNext();
-				itr1=itr1.getNext();
+				itr2 = itr2.getNext();
+				itr1 = itr1.getNext();
 			}
 		}
-		while(itr1!=null) {
+		while (itr1 != null) {
 			ll.insert_last(itr1.getData());
-			itr1=itr1.getNext();
+			itr1 = itr1.getNext();
 		}
-		while(itr2!=null) {
+		while (itr2 != null) {
 			ll.insert_last(itr2.getData());
-			itr2=itr2.getNext();
+			itr2 = itr2.getNext();
 		}
 		return ll;
 	}
-	
+
 	public void evenOdd() {
-		Int_linkedlist temp= new Int_linkedlist();
-		IntListNode iter= head;
-		while(iter!=null) {
-			if((iter.getData() % 2)==0) {
-				temp.insert_last(iter.getData());				
+		Int_linkedlist temp = new Int_linkedlist();
+		IntListNode iter = head;
+		while (iter != null) {
+			if ((iter.getData() % 2) == 0) {
+				temp.insert_last(iter.getData());
 			}
 			iter = iter.getNext();
 		}
-		iter= head;
-		while(iter!=null) {
-			if((iter.getData() % 2)!=0) {
-				temp.insert_last(iter.getData());			
+		iter = head;
+		while (iter != null) {
+			if ((iter.getData() % 2) != 0) {
+				temp.insert_last(iter.getData());
 			}
 			iter = iter.getNext();
 		}
-		
+
 		head = temp.getHead();
-		temp=null;
+		temp = null;
 		return;
 	}
-	
-public void evenOdd2(){
-IntListNode iter = head;
-MyQueue qq = new MyQueue(20);
-while(iter != null){
-  if(iter.getData() % 2 == 0){
-   qq.add(iter.getData());
-   iter = iter.getNext();
-    }
-  }
- iter = head;
-  while(iter != null){
-  if(iter.getData() % 2 != 0){
-   qq.add(iter.getData());
-   iter = iter.getNext();
-    }
-  }
- // updating list 
- while(iter != null && !qq.isEmpty()){
-   iter.setData( qq.remove());
-   iter = iter.getNext();
-    }
-  }
-  return;
-}
+
+	public void evenOdd2() {
+		IntListNode iter = head;
+		MyQueue qq = new MyQueue(20);
+		while (iter != null) {
+			if (iter.getData() % 2 == 0) {
+				qq.insert(iter.getData());
+			}
+			iter = iter.getNext();
+		}
+		iter = head;
+		while (iter != null) {
+			if (iter.getData() % 2 != 0) {
+				qq.insert(iter.getData());
+			}
+			iter = iter.getNext();
+		}
+		// updating list
+		iter = head;
+		while (iter != null) {
+			iter.setData(qq.remove());
+			iter = iter.getNext();
+		}
+		return;
+	}
+
+	public Int_linkedlist evenOdd3() {
+		IntListNode iter = head;
+		Int_linkedlist ll = new Int_linkedlist();
+		while(iter!=null) {
+			if(iter.getData() % 2== 0) {
+				ll.insertFirst(iter.getData());
+				iter = iter.getNext();
+			}else {
+				ll.insert_last(iter.getData());
+				iter = iter.getNext();
+			}
+		}		
+		return ll;
+	} 
+
 
 	public void swapAdjacent() {
-		if(head==null) {
+		if (head == null) {
 			System.out.println("list is empty..!!");
 		}
 		IntListNode iter = head;
 		int temp;
-		
-		while(iter != null) {
-			if(iter.getNext()!=null && iter.getNext().getNext()!=null) {
-				temp= iter.getData();
+
+		while (iter != null) {
+			if (iter.getNext() != null && iter.getNext().getNext() != null) {
+				temp = iter.getData();
 				iter.setData(iter.getNext().getData());
 				iter.getNext().setData(temp);
 			}
@@ -275,5 +292,5 @@ while(iter != null){
 				iter = iter.getNext();
 		}
 	}
-	
+
 }
