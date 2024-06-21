@@ -233,10 +233,27 @@ public class Int_linkedlist {
 	
 public void evenOdd2(){
 IntListNode iter = head;
-
+MyQueue qq = new MyQueue(20);
 while(iter != null){
-   
-}
+  if(iter.getData() % 2 == 0){
+   qq.add(iter.getData());
+   iter = iter.getNext();
+    }
+  }
+ iter = head;
+  while(iter != null){
+  if(iter.getData() % 2 != 0){
+   qq.add(iter.getData());
+   iter = iter.getNext();
+    }
+  }
+ // updating list 
+ while(iter != null && !qq.isEmpty()){
+   iter.setData( qq.remove());
+   iter = iter.getNext();
+    }
+  }
+  return;
 }
 
 	public void swapAdjacent() {
