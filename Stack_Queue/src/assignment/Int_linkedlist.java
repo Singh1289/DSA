@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import day_2_Queue.IntListNode;
 import day_2_Queue.MyQueue;
+import day_6_Tree.Queue_LinkedList;
 
 public class Int_linkedlist {
 	private IntListNode head;
@@ -332,7 +333,7 @@ public class Int_linkedlist {
 
 
 
-
+	//  
 	public static void insertionSort(Int_linkedlist ll) {
 		int count, temp;
 		IntListNode iter,tt,tt2;
@@ -349,17 +350,93 @@ public class Int_linkedlist {
 				}
 				iter= iter.getNext();
 			}
-			System.out.println("~~~~~~~~~~~~~~");
-			System.out.println(ll);
+		//	System.out.println("~~~~~~~~~~~~~~");
+		//	System.out.println(ll);
 			tt2=tt.getNext();
 		}
 	}
 
+	// selection sort
 	public static void selectionSort(Int_linkedlist ll) {
-		// TODO Auto-generated method stub
-		
+		int temp;
+		IntListNode iter,min,iter2,tt2;
+		iter2= ll.getHead();
+
+		while(iter2!=null) {
+			min=tt2= iter = iter2;
+			 
+			while(iter!=null ) {
+				if(min.getData()>iter.getData()) 					
+					min=iter; 
+					
+				iter= iter.getNext();
+			}
+			if(tt2!=min) {
+				temp= min.getData();
+				min.setData(tt2.getData());
+				tt2.setData(temp);
+			}
+		//	System.out.println("~~~~~~~~~~~~~~");
+		//	System.out.println(ll);
+			iter2=iter2.getNext();
+		}
 	}
 
 
+	public static Int_linkedlist list_to_digit(Int_linkedlist ll,Int_linkedlist ll2) {
+		Int_linkedlist list = new Int_linkedlist();
+		int temp, temp2;
+		temp=temp2=0;
+		IntListNode iter= ll.getHead();
+		while(iter!= null) {
+			temp=(temp*10)+iter.getData();
+			iter=iter.getNext();
+		}
+		System.out.println("list1 = "+temp);
+		iter=ll2.getHead();
+		while(iter!= null) {
+			temp2=(temp2*10)+iter.getData();
+			iter=iter.getNext();
+		}
+		System.out.println("list1 = "+temp2);
+		
+		temp=temp+temp2;
+		
+		while(temp!=0) {
+			list.insertFirst(temp%10);
+			temp=temp/10;
+		}
+		
+		return list;
+	}
+	
+	
+	public void bringAlternateToFront() {
+		IntListNode iter= head;
+		int flag=0;
+		Queue_LinkedList alter=new Queue_LinkedList();
+		Queue_LinkedList qq=new Queue_LinkedList();
+		while(iter !=null) {
+			if(flag==0) {
+				alter.add(iter.getData());
+				flag=1;
+			}else {
+				qq.add(iter.getData());
+				flag=0;
+			}
+			iter=iter.getNext();
+		}
+		iter=head;
+		while(iter !=null) {
+			if(!alter.isEmpty()) {
+				iter.setData(alter.remove());
+				iter=iter.getNext();
+			}
+			else {
+				iter.setData(qq.remove());
+				iter=iter.getNext();
+			}
+		}
+	}
 
 }

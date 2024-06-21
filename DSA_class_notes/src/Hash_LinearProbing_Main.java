@@ -1,10 +1,11 @@
+package for_DSA;
 
 import java.util.Scanner;
 
 enum type_of_record {EMPTY, DELETED, OCCUPIED};
 
 class Record {
-	Employee emp;
+	Employee info;
 	type_of_record status;
 }
 
@@ -38,7 +39,7 @@ class Hash_LinearProbing{
 	{
 		int i, location, h;
 		
-		int key = emprec.getEmpId();	/*Extract key from the record*/
+		int key = emprec.getEmpno();	/*Extract key from the record*/
 		h = hash(key);				
 		
 		location = h;	
@@ -46,12 +47,12 @@ class Hash_LinearProbing{
 		{
 			if(table[location].status == type_of_record.EMPTY || table[location].status == type_of_record.DELETED)
 			{
-				table[location].emp = emprec;
+				table[location].info = emprec;
 				table[location].status = type_of_record.OCCUPIED;	
 				System.out.print("Record inserted\n\n");
 				return;
 			}
-			if(table[location].emp.getEmpId() == key)
+			if(table[location].info.getEmpno() == key)
 			{
 				System.out.print("Duplicate key\n\n");
 				return;
@@ -71,9 +72,8 @@ class Hash_LinearProbing{
 		{
 			if( table[location].status == type_of_record.EMPTY  ) 
 				return -1;
-			if( table[location].emp.getEmpId() == key)
+			if( table[location].info.getEmpno() == key)
 				return location;
-			
 			location = ( h + i ) % 10;								
 		}
 		return -1;
@@ -101,9 +101,9 @@ class Hash_LinearProbing{
 			System.out.print(" \n\n  "+i );
 			if(table[i].status== type_of_record.OCCUPIED) 
 			{
-				System.out.print("Occupied "+table[i].emp.getEmpId()+"  " +table[i].emp.getName());
+				System.out.print("Occupied "+table[i].info.getEmpno()+"  " +table[i].info.getEname());
 				
-				System.out.print("   "+ table[i].emp.getSalary());
+				System.out.print("   "+ table[i].info.age);
 			}
 			else if(table[i].status== type_of_record.DELETED)
 				System.out.print("Deleted\n");
@@ -133,17 +133,17 @@ public class Hash_LinearProbing_Main {
 			e = new Employee(eno,name,s,age);
 			hl.insert(e);
 		}*/
-		hl.insert(new Employee(1009, "Janhavi", 25000));
-		hl.insert(new Employee(9889, "Pooja", 45000));
-		hl.insert(new Employee(1999, "Jayant", 40000));
-		hl.insert(new Employee(2334, "Jaya", 35000));
-		hl.insert(new Employee(1994, "Sonal", 21000));
+		hl.insert(new Employee(1009,"Janhavi",55000f,51));
+		hl.insert(new Employee(9889,"Pooja",45000f,52));
+		hl.insert(new Employee(1999,"Jayant",45000f,54));
+		hl.insert(new Employee(2334,"Jaya",35000f,54));
+		hl.insert(new Employee(1994,"Sonal",25000f,54));
 		hl.display();
 		System.out.println("\n\nsearch for key ="+hl.search(9889));
 		
 		hl.del(9889);
 		hl.display();
-		hl.insert(new Employee(9889, "Palu", 56000));
+		hl.insert(new Employee(9889,"Palu",56000f,56));
 		System.out.println("\n\n");
 		hl.display();
         sc.close();
