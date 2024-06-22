@@ -3,8 +3,8 @@ package assignment;
 public class ProductLL_queue {
 	private ProListNode top;
 
-	public ProductLL_queue(ProListNode top) {
-		this.top = top;
+	public ProductLL_queue() {
+		top = null;
 	}
 
 	public ProListNode getTop() {
@@ -15,6 +15,7 @@ public class ProductLL_queue {
 		this.top = top;
 	}
 	
+	
 	public void enQueue(Product p) {
 		ProListNode new_node= new ProListNode(p);
 		if(top==null) {
@@ -23,7 +24,7 @@ public class ProductLL_queue {
 		}
 		
 		ProListNode iter = top;
-		while(iter!=null) {
+		while(iter.getNext()!=null) {
 			iter= iter.getNext();
 		}
 		iter.setNext(new_node);
@@ -40,16 +41,20 @@ public class ProductLL_queue {
 			return temp;
 		}
 		ProListNode del = top;
-		ProListNode tt;
 		temp = del.getPro();
-		tt= del.getNext();
+		top= del.getNext();
 		del.setNext(null);
-		top= tt;
-		del=tt=null;	
-		
+		del=null;	
 		return temp;
 	}
 	
-	
+	public Product peek() {
+		Product temp= null;
+		if(top==null)return temp;
+		
+		temp = top.getPro();
+		
+		return temp;
+	}
 	
 }
