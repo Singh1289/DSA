@@ -60,8 +60,9 @@ public class Int_LLMain {
 				list.insertMany(woh);
 				break;
 			case 6:
-				ll.evenOdd();
-				System.out.println("Done..!!");
+				//Int_linkedlist nn=ll.evenOdd3();
+				ll.evenOdd2();
+				//System.out.println(nn);
 				break;
 			case 7:
 				Int_linkedlist test =Int_linkedlist.mergeSorted(ll, list);
