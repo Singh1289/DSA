@@ -152,12 +152,12 @@ public class Int_linkedlist {
 		System.out.println();
 	}
 	
-	private void deleteByAddress(IntListNode del) {
-			
+	private void deleteByAddress(IntListNode del) {		
 		IntListNode temp= del.getNext().getNext();
 		del.setData(del.getNext().getData());
 		del.getNext().setNext(null);
-		del.setNext(temp);		
+		del.setNext(temp);	
+		temp = null;
 		return ;
 	}
 	
@@ -184,7 +184,7 @@ public class Int_linkedlist {
 		Int_linkedlist ll = new Int_linkedlist();
 		IntListNode itr1= list1.getHead();
 		IntListNode itr2 = list2.getHead();
-		
+												// no duplicates in sorted array (merge sort)
 		while(itr1!=null && itr2!= null) {
 			if(itr1.getData() < itr2.getData()) {
 				ll.insert_last(itr1.getData());

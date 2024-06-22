@@ -15,10 +15,10 @@ public class EmployeeStack {
 	
 	// is Empty  isFull pop push peek
 	public boolean isEmpty() {
-		return (top==-1)? true: false;
+		return (top==-1)? true : false;
 	}
 	public boolean isFull() {
-		return (top==arr.length-1)? true: false;
+		return (top==arr.length-1)? true : false;
 	}
 	
 	public void push(Employee a) {
